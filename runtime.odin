@@ -16,6 +16,10 @@ Compiled :: struct($T: typeid) {
 	approx_bytes: int,
 }
 
+noescape :: #force_inline proc(str: string) -> string {
+	return str
+}
+
 /*
 Writes a string to the writer with special characters that can be used in XSS escaped.
 */
