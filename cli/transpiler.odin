@@ -110,6 +110,10 @@ transpile_node :: proc(t: ^Transpiler, node: Node) {
 }
 
 transpile_text :: proc(t: ^Transpiler, node: ^Node_Text) {
+	if len(node.text.value) == 0 {
+		return
+	}
+
 	t.approx_bytes += len(node.text.value)
 
 	fmt.wprintf(t.w, "%s += %s.write_string(%s, ", RET_N, PKG_IO, ARG_W)
