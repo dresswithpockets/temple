@@ -154,7 +154,7 @@ transpile_output :: proc(t: ^Transpiler, node: ^Node_Output) {
 	case strings.has_prefix(v, "noescape("):
 		fmt.wprintf(t.w, "%s.write_string(", PKG_IO)
 	case:
-		ws(t.w, "__temple_write_escaped_string(")
+		ws(t.w, "__temple_rt.__temple_write_escaped_string(")
 	}
 
 	ws(t.w, ARG_W)
