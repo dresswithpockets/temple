@@ -234,6 +234,10 @@ transpile_calls :: proc(temple_path: string, calls: []Compile_Call, package_name
 	write_generated_file_footer(w, good_calls > 0)
 
 	fmt.printf("found %i compile calls of which %i where successfully compiled\n", len(calls), good_calls)
+
+	if len(calls) > good_calls {
+		os.exit(1)
+	}
 }
 
 write_generated_file_header :: proc(w: io.Writer, has_calls: bool, package_name: string) {
